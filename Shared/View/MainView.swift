@@ -8,25 +8,22 @@
 import SwiftUI
 
 struct MainView: View {
-    init() {
-        UINavigationBar.appearance().backgroundColor = .white
+    @ObservedObject var viewModel: MainViewModel
+    
+    init(_ viewModel: MainViewModel) {
+        UINavigationBar.appearance().backgroundColor = Constants.navigationBarBackgroundColor
                
         UINavigationBar.appearance().largeTitleTextAttributes = [
-                    .foregroundColor: UIColor.blue,
-                    .font : UIFont(name:"Thonburi Bold", size: 40)!]
+            .foregroundColor: Constants.navigationBarForegroundColor,
+            .font : Constants.mainFont]
+        self.viewModel = viewModel
+        self.viewModel.fetchData()
     }
-    
-    let heroes = [
-        Hero(description: "Ironman", id: 0, modified: "", name: "", resourceURI: "", thumbnail: ""),
-        Hero(description: "Capitão America", id: 1, modified: "", name: "", resourceURI: "", thumbnail: "")
-    ]
     
     var body: some View {
         NavigationView{
-            List(heroes) { hero in
-                VStack(alignment: .center){
-                    Text(hero.description ?? "")
-                }
+            List(self.viewModel.heroes) { hero in
+                RowView(hero)
             }
             .navigationTitle("Marvel Heroes")
         }
@@ -35,6 +32,6 @@ struct MainView: View {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
+        MainView(MainViewModel(with: MainRepositoryMock()))
     }
 }

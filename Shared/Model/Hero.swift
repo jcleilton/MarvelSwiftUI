@@ -15,7 +15,7 @@ struct Hero: Identifiable, Decodable {
     let resourceURI: String?
     let thumbnail: String?
         
-    mutating func getImage(completion: @escaping((UIImage?) -> Void)) {
+    func getImage(completion: @escaping((UIImage?) -> Void)) {
         if let image = ImageCashing.get(forKey: self.thumbnail ?? "") {
             completion(image)
         } else {
