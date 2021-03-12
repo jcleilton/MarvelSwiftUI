@@ -18,8 +18,14 @@ struct RowView: View {
     }
     
     var body: some View {
-        return VStack(alignment: .center){
-            Text(hero.description ?? "")
-        }
+        return HStack(){
+            Image(uiImage: remoteImage.image)
+                .resizable()
+                .frame(width: 50, height: 50, alignment: .center)
+                .clipShape(Circle())
+                .shadow(radius: 10)
+                .overlay(Circle().stroke(Color.gray, lineWidth: 0.05))
+            Text(hero.name ?? "").font(.subheadline)
+        }.frame(height: 60)
     }
 }

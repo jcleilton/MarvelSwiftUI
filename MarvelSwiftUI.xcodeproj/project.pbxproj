@@ -14,6 +14,7 @@
 		0C32411F25FA91B200FF232B /* MainRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C32411E25FA91B200FF232B /* MainRepositoryMock.swift */; };
 		0C32412425FA97A400FF232B /* RowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C32412325FA97A400FF232B /* RowView.swift */; };
 		0C32412925FA989A00FF232B /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C32412825FA989A00FF232B /* RemoteImage.swift */; };
+		0C32413325FAD4B400FF232B /* MarvelResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C32413225FAD4B400FF232B /* MarvelResponse.swift */; };
 		0CA27BC125DC311900C9005C /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA27BC025DC311900C9005C /* Tests_iOS.swift */; };
 		0CA27BCC25DC311900C9005C /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA27BCB25DC311900C9005C /* Tests_macOS.swift */; };
 		0CA27BCE25DC311900C9005C /* MarvelSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA27BA525DC311800C9005C /* MarvelSwiftUIApp.swift */; };
@@ -69,6 +70,7 @@
 		0C32411E25FA91B200FF232B /* MainRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRepositoryMock.swift; sourceTree = "<group>"; };
 		0C32412325FA97A400FF232B /* RowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowView.swift; sourceTree = "<group>"; };
 		0C32412825FA989A00FF232B /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
+		0C32413225FAD4B400FF232B /* MarvelResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelResponse.swift; sourceTree = "<group>"; };
 		0CA27BA525DC311800C9005C /* MarvelSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelSwiftUIApp.swift; sourceTree = "<group>"; };
 		0CA27BA725DC311900C9005C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0CA27BAC25DC311900C9005C /* MarvelSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -235,6 +237,7 @@
 			children = (
 				0CA27BE925DC33BC00C9005C /* Hero.swift */,
 				0C32412825FA989A00FF232B /* RemoteImage.swift */,
+				0C32413225FAD4B400FF232B /* MarvelResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -491,6 +494,7 @@
 				0CA27C4C25DC3D1200C9005C /* ConnectionSessionManager.swift in Sources */,
 				0CA27BEA25DC33BC00C9005C /* Hero.swift in Sources */,
 				0CA27C5125DC3D1C00C9005C /* API.swift in Sources */,
+				0C32413325FAD4B400FF232B /* MarvelResponse.swift in Sources */,
 				0C32410725FA8E4100FF232B /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,7 +8,14 @@
 import Foundation
 
 class MainRepository: MainProtocol {
-    func fecthData(callback: @escaping (([Hero]) -> Void)) {
-        
+    func fecthData(callback: @escaping (Result<[Hero], ErrorKind>) -> Void) {
+        API.fecthData(with: "") { result in
+            switch result {
+            case .success(let heroes):
+                callback(.success(heroes))
+            case .failure(let error):
+                callback(.failure(error))
+            }
+        }
     }
 }

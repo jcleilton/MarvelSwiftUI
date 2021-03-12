@@ -17,8 +17,19 @@ class MainViewModel: ObservableObject {
     }
     
     func fetchData() {
-        self.repository.fecthData { [weak self] heroes in
-            self?.heroes = heroes
+        self.repository.fecthData { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let heroes):
+                    self?.heroes = heroes
+                case .failure(let error):
+                    self?.onError(error)
+                }
+            }
         }
+    }
+    
+    private func onError(_ error: ErrorKind) {
+        print(error.localizedDescription)
     }
 }

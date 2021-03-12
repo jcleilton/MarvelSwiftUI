@@ -8,5 +8,5 @@
 import Foundation
 
 protocol MainProtocol {
-    func fecthData(callback: @escaping(([Hero]) -> Void))
+    func fecthData(callback: @escaping (Result<[Hero], ErrorKind>) -> Void)
 }

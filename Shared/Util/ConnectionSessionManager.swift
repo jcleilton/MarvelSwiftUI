@@ -49,6 +49,29 @@ struct ConnectionSessionManager {
         }).resume()
     }
     
+    func invokeGetData(url: String, completion: @escaping (Result<Data, ErrorKind>) -> Void){
+        URLCache.shared.removeAllCachedResponses()
+        guard let url = URL(string: url) else{
+            return completion(.failure(ErrorKind.invalidURL))
+        }
+        var request = URLRequest(url: url)
+        request.httpMethod = ConnectionSessionHttpMethod.get.description()
+        
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        self.session.dataTask(with: request, completionHandler: { (data, response, error) in
+            guard let _ = error else{
+                guard let data = data else {
+                    return completion(.failure(ErrorKind.noData))
+                }
+                
+                completion(.success(data))
+                return
+            }
+            completion(.failure(ErrorKind.requestError))
+        }).resume()
+    }
+    
     func downloadImage(from url: URL, completion: @escaping Callback<UIImage?, Error?>){
         URLCache.shared.removeAllCachedResponses()
         self.session.dataTask(with: url, completionHandler: { (data, response, error) in
@@ -150,6 +173,7 @@ enum ErrorKind: Error {
     case invalidURL
     case noInternet
     case unauthorizate
+    case invalidJSON
     
     var localizedDescription: String {
         switch self {
@@ -163,6 +187,8 @@ enum ErrorKind: Error {
             return "Sem internet"
         case .unauthorizate:
             return "Acesso negado"
+        case .invalidJSON:
+            return "Erro na conversão dos dados"
         }
     }
 }

@@ -8,11 +8,11 @@
 import SwiftUI
 
 class RemoteImage: ObservableObject {
-    @Published var image = UIImage()
+    @Published var image = Constants.placeholderImage
     
     init(from hero: Hero) {
         hero.getImage { [weak self] image in
-            self?.image = image ?? UIImage()
+            self?.image = image ?? Constants.placeholderImage
         }
     }
 }
