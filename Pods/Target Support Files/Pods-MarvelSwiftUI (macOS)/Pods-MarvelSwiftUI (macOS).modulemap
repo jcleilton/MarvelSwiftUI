@@ -1,0 +1,6 @@
+framework module Pods_MarvelSwiftUI__macOS_ {
+  umbrella header "Pods-MarvelSwiftUI (macOS)-umbrella.h"
+
+  export *
+  module * { export * }
+}
